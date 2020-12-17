@@ -155,8 +155,8 @@ const posts_intro = [
   {
     "year": "2020/11/03",
     "tag": "intro",
-    "title": "KubeMQ",
-    "link": "基於 Kubernetes 內的 Message Queue"
+    "title": "KubeMQ 基於 Kubernetes 內的 Message Queue",
+    "link": "https://www.facebook.com/technologynoteniu/posts/151817666652374"
   },
   {
     "year": "2020/11/05",

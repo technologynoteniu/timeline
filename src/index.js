@@ -1,3 +1,5 @@
+const posts = posts_cicd.concat(posts_intro);
+
 $(document).ready(function(){
     for (var i = 0; i < posts.length; i++) {
         console.log(posts[i]);

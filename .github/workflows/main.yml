@@ -40,8 +40,9 @@ jobs:
           git add -A
           git commit -m "Updated by GitHub Actions from the timeline project"
           git push origin HEAD
+
       - name: Generate js object from csv
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: '12'
         run: |

@@ -211,8 +211,8 @@ const posts = [
   },
   {
     "year": "11/04/20",
-    "tag": "Grafana 對 Tracing 伸出魔爪",
-    "title": "observability tempo",
+    "tag": "observability",
+    "title": "Grafana 對 Tracing 伸出魔爪 Tempo",
     "link": "https://www.facebook.com/technologynoteniu/posts/152229139944560"
   },
   {

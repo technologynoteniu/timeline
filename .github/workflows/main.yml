@@ -40,5 +40,5 @@ jobs:
           git checkout -b hwchiu_test2
           git add -A
           git commit -m "Updated by GitHub Actions from the timeline project"
-          git push origin
+          git push origin HEAD
 

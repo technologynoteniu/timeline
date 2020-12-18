@@ -35,10 +35,10 @@ jobs:
           git clone git@github.com:technologynoteniu/awesome-notes.git
           bash convert.sh
           cd awesome-notes
+          git config --global user.email "do-not-reply@hwchiu.com"
+          git config --global user.name "GitHub Action"
           git checkout -b hwchiu_test2
           git add -A
           git commit -m "Updated by GitHub Actions from the timeline project"
-          git config --global user.email "do-not-reply@hwchiu.com"
-          git config --global user.name "GitHub Action"
           git push origin
 

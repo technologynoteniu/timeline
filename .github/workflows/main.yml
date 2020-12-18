@@ -45,5 +45,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - run: npm install
-      - run: node node csv2json.js
+      - run: cd tools && npm install
+      - run: cd tools && node csv2json.js

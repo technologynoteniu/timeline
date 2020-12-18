@@ -7,8 +7,10 @@
     <title>Timeline</title>
     <!-- load custom font -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,900">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- load icon font -->
     <script>
       window.fbAsyncInit = function() {
@@ -28,61 +30,53 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1390511594581802" nonce="Pajvh65t"></script>
     <script src="src/posts.js"></script>
     <script src="src/index.js"></script>
 </head>
+  <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1390511594581802" nonce="Pajvh65t"></script>
 
-<header>
-    <h1>Technology Note 🐂 Timeline</h1>
-    <p>Clean Timeline - Take Back Control From Facebook</p>
-</header>
+    <header>
+        <h1>Technology Note 🐂 Timeline</h1>
+        <p>Clean Timeline - Take Back Control From Facebook</p>
+    </header>
 
-<ul class="timeline">
-  <!-- Item 1 -->
-  <!-- <li>
-    <div class="direction-r">
+    <a id="button"></a>
+  
 
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Lorem ipsum.</span>
-        <span class="time-wrapper"><span class="time">Feb 2015</span></span>
-      </div>
+    <ul class="timeline">
+      <li class="post"></li>
+      <!-- Item 1 -->
+      <!-- <li>
+        <div class="direction-r">
 
-      <div class="desc">
-        <div class="fb-post" data-href="https://www.facebook.com/technologynoteniu/posts/120445456456262" data-show-text="true" data-width="400"></div>
-      </div>
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">Lorem ipsum.</span>
+            <span class="time-wrapper"><span class="time">Feb 2015</span></span>
+          </div>
 
-    </div>
-  </li> -->
+          <div class="desc">
+            <div class="fb-post" data-href="https://www.facebook.com/technologynoteniu/posts/120445456456262" data-show-text="true" data-width="400"></div>
+          </div>
 
-  <!-- Item 2 -->
-  <!-- <li>
-    <div class="direction-l">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Lorem ipsum Anim.</span>
-        <span class="time-wrapper"><span class="time">Dec 2014</span></span>
-      </div>
-      <div class="desc">
-        <div class="fb-post" data-href="https://www.facebook.com/technologynoteniu/posts/120528776447930" data-show-text="true" data-width="400"></div>
-      </div>
-  </li> -->
+        </div>
+      </li> -->
 
-  <!-- Item 3 -->
-  <!-- <li>
-    <div class="direction-r">
-      <div class="flag-wrapper">
-        <span class="hexa"></span>
-        <span class="flag">Lorem Occaecat.</span>
-        <span class="time-wrapper"><span class="time">July 2014</span></span>
-      </div>
-      <div class="desc">
-        <div class="fb-post" data-href="https://www.facebook.com/technologynoteniu/posts/125741595926648" data-show-text="true" data-width="400"></div>
-      </div>
-    </div>
-  </li> -->
+      <!-- Item 2 -->
+      <!-- <li>
+        <div class="direction-l">
+          <div class="flag-wrapper">
+            <span class="hexa"></span>
+            <span class="flag">Lorem ipsum Anim.</span>
+            <span class="time-wrapper"><span class="time">Dec 2014</span></span>
+          </div>
+          <div class="desc">
+            <div class="fb-post" data-href="https://www.facebook.com/technologynoteniu/posts/120528776447930" data-show-text="true" data-width="400"></div>
+          </div>
+      </li> -->
 
-</ul>
+    </ul>
+  </body>
 </html>

@@ -1,38 +1,105 @@
-// const posts = posts_cicd.concat(posts_intro);
+function loadPost(step) {
+    for (var i = 0; i < 2; i++) {
+        // console.log("i step", i, step)
+        var index = i + step;
+        // i step index
+        // 0 0    0 
+        // 1 0    1
 
-$(document).ready(function(){
-    for (var i = 0; i < posts.length; i++) {
-        // console.log(posts[i]);
-        if (i % 2 !== 0) {
+        // 0 2    2
+        // 1 2    3
+        
+        // console.log("index", index)
+        if ( index % 2 !== 0) {
             $(".timeline").append(`
-            <li>
+            <li class="post">
             <div class="direction-r">
                 <div class="flag-wrapper">
                     <span class="hexa"></span>
-                    <span class="flag">${posts[i].tag}</span>
+                    <span class="flag">${posts[index].tag}</span>
                     <span class="time-wrapper">
-                    <span class="time">${posts[i].date}</span></span>
+                    <span class="time">${posts[index].date}</span></span>
                 </div>
-                <div class="desc">
-                    <div class="fb-post" data-href="${posts[i].link}" data-show-text="true" data-width="400"></div>
+                <div id="index-${index}" class="desc">
+                    <div class="fb-post"
+                        data-lazy="true"
+                        data-href="${posts[index].link}"
+                        data-show-text="true"
+                        data-width="auto">
+                    </div>
                 </div>
             </div>
             </li>`);
         } else {
             $(".timeline").append(`
-            <li>
+            <li class="post">
             <div class="direction-l">
                 <div class="flag-wrapper">
                     <span class="hexa"></span>
-                    <span class="flag">${posts[i].tag}</span>
+                    <span class="flag">${posts[index].tag}</span>
                     <span class="time-wrapper">
-                    <span class="time">${posts[i].date}</span></span>
+                    <span class="time">${posts[index].date}</span></span>
                 </div>
-                <div class="desc">
-                    <div class="fb-post" data-href="${posts[i].link}" data-show-text="true" data-width="400"></div>
+                <div id="index-${index}" class="desc">
+                    <div class="fb-post"
+                        data-lazy="true"
+                        data-href="${posts[index].link}"
+                        data-show-text="true"
+                        data-width="auto">
+                    </div>
                 </div>
             </div>
             </li>`);
         }
+        // reload all fb posts
+        if (step !== 0 ){
+            FB.XFBML.parse(document.getElementById(`index-${index}`));
+        }
     }
+}
+
+
+$(document).ready(function(){
+    loadPost(0);
+    var counter = 0;
+    var btn = $('#button');
+
+    var click = function() {          
+      var getClicks = function() {
+        return counter += 1;
+      }
+      return getClicks;
+    }
+    onClick = click();
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        var page = onClick()*2
+        loadPost(page);
+        // FB.XFBML.parse(document.getElementById('step-'+page));
+    });
+
+
+    // $('.timeline').infiniteScroll({
+    //   // options
+    //   path: function() {
+    //     // for (var i = 4; i < posts.length; i++) {
+    //     //   if ( i % 2 !== 0 ) {
+    //         if ( this.loadCount < 1 ) {
+    //       	  return 'index2.html';
+    //         }
+    //     //   }
+    //     // }
+    //   },
+    //   append: '.post',
+    //   history: false,
+    // });
 });

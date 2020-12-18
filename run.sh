@@ -18,7 +18,7 @@ for dir in $DIRS; do
             fi
             echo $date,$tag,$title,$link
 
-# - [2020/11/09 - 幫你的 VIM 增加 Kubernetes YAML 支援](https://www.facebook.com/technologynoteniu/posts/154898276344313)                
+# - [2020/11/09 - 幫你的 VIM 增加 Kubernetes YAML 支援](https://www.facebook.com/technologynoteniu/posts/154898276344313)
         done
     done
 done

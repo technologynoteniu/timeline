@@ -4,4 +4,5 @@ const fs = require('fs');
 var content = fs.readFileSync('../posts.csv', 'utf8');
 
 const json = csv2json(content, {parseNumbers: true});
-console.log(json);
+
+console.log(`const posts = ${JSON.stringify(json)}`);

@@ -9,11 +9,29 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,900">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- load icon font -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1390511594581802',
+          xfbml      : true,
+          version    : 'v9.0'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=1390511594581802" nonce="Pajvh65t"></script>
     <script src="src/posts.js"></script>
     <script src="src/index.js"></script>
-    <!-- load icon font -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=388302591902281&autoLogAppEvents=1" nonce="iVcbdIEA"></script>
-    <div id="fb-root"></div>
 </head>
 
 <header>

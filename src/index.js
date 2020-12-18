@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     for (var i = 0; i < posts.length; i++) {
-        console.log(posts[i]);
+        // console.log(posts[i]);
         if (i % 2 !== 0) {
             $(".timeline").append(`
             <li>

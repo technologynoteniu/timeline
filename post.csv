@@ -1,4 +1,3 @@
-2020/11/04 - Grafana 對 Tracing 伸出魔爪,observability,tempo,https://www.facebook.com/technologynoteniu/posts/152229139944560
 12/14/20,container,如何透過安全掃描工具來提升 Container Image 的安全性,https://www.facebook.com/technologynoteniu/posts/183046206862853
 12/11/20,introduction,Stateful 的概念介紹,https://www.facebook.com/technologynoteniu/posts/180810593753081
 12/11/20,container,若不使用 Docker，可以使用什麼服務?,https://www.facebook.com/technologynoteniu/posts/181027540398053
@@ -34,6 +33,7 @@
 11/9/20,tool,幫你的 VIM 增加 Kubernetes YAML 支援,https://www.facebook.com/technologynoteniu/posts/154898276344313
 11/8/20,tool,SCP 工具的注意事項,https://www.facebook.com/technologynoteniu/posts/154650336369107
 11/7/20,container,Docker 網路模型實驗篇中,https://www.facebook.com/technologynoteniu/posts/154008856433255
+11/04/20,Grafana 對 Tracing 伸出魔爪,observability tempo,https://www.facebook.com/technologynoteniu/posts/152229139944560
 11/5/20,introduction,CRD 的入門介紹,https://www.facebook.com/technologynoteniu/posts/152603559907118
 11/3/20,introduction,KubeMQ 基於 Kubernetes 內的 Message Queue,https://www.facebook.com/technologynoteniu/posts/151817666652374
 11/2/20,usecases,使用 k3s Rancher Vault and ArgoCD 來實作 GitOps,https://www.facebook.com/technologynoteniu/posts/151419883358819

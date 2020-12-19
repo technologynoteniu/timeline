@@ -3,12 +3,12 @@ function loadPost(step) {
         // console.log("i step", i, step)
         var index = i + step;
         // i step index
-        // 0 0    0 
+        // 0 0    0
         // 1 0    1
 
         // 0 2    2
         // 1 2    3
-        
+
         // console.log("index", index)
         if ( index % 2 !== 0) {
             $(".timeline").append(`
@@ -64,7 +64,7 @@ $(document).ready(function(){
     var counter = 0;
     var btn = $('#button');
 
-    var click = function() {          
+    var click = function() {
       var getClicks = function() {
         return counter += 1;
       }
@@ -84,7 +84,6 @@ $(document).ready(function(){
         e.preventDefault();
         var page = onClick()*2
         loadPost(page);
-        // FB.XFBML.parse(document.getElementById('step-'+page));
     });
 
 

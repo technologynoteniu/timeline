@@ -8,6 +8,9 @@ function loadPost(step) {
 
         // 0 2    2
         // 1 2    3
+        if (index+1 >= posts.length) {
+            return true;
+        }
 
         // console.log("index", index)
         if ( index % 2 !== 0) {
@@ -26,6 +29,7 @@ function loadPost(step) {
                         data-href="${posts[index].link}"
                         data-show-text="true"
                         data-width="auto">
+                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
                     </div>
                 </div>
             </div>
@@ -46,6 +50,7 @@ function loadPost(step) {
                         data-href="${posts[index].link}"
                         data-show-text="true"
                         data-width="auto">
+                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
                     </div>
                 </div>
             </div>
@@ -56,6 +61,7 @@ function loadPost(step) {
             FB.XFBML.parse(document.getElementById(`index-${index}`));
         }
     }
+    return false;
 }
 
 
@@ -83,10 +89,10 @@ $(document).ready(function(){
     btn.on('click', function(e) {
         e.preventDefault();
         var page = onClick()*2
-        loadPost(page);
+        var buttom = loadPost(page);
+        console.log("buttom: ", buttom)
         btn.removeClass('show');
     });
-
 
     // $('.timeline').infiniteScroll({
     //   // options

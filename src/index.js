@@ -20,7 +20,7 @@ function loadPost(step) {
                     <span class="time-wrapper">
                     <span class="time">${posts[index].date}</span></span>
                 </div>
-                <div id="index-${index}" class="desc">
+                <div id="index-${index}" class="desc" style="visibility: hidden;">
                     <div class="fb-post"
                         data-lazy="true"
                         data-href="${posts[index].link}"
@@ -40,7 +40,7 @@ function loadPost(step) {
                     <span class="time-wrapper">
                     <span class="time">${posts[index].date}</span></span>
                 </div>
-                <div id="index-${index}" class="desc">
+                <div id="index-${index}" class="desc" style="visibility: hidden;">
                     <div class="fb-post"
                         data-lazy="true"
                         data-href="${posts[index].link}"
@@ -84,6 +84,7 @@ $(document).ready(function(){
         e.preventDefault();
         var page = onClick()*2
         loadPost(page);
+        btn.removeClass('show');
     });
 
 

@@ -1,111 +1,104 @@
-function loadPost(step) {
-    for (var i = 0; i < 2; i++) {
-        // console.log("i step", i, step)
-        var index = i + step;
-        // i step index
-        // 0 0    0
-        // 1 0    1
-
-        // 0 2    2
-        // 1 2    3
-        if (index+1 >= posts.length) {
-            return true;
-        }
-
-        // console.log("index", index)
-        if ( index % 2 !== 0) {
-            $(".timeline").append(`
-            <li class="post">
-            <div class="direction-r">
-                <div class="flag-wrapper">
-                    <span class="hexa"></span>
-                    <span class="flag">${posts[index].tag}</span>
-                    <span class="time-wrapper">
-                    <span class="time">${posts[index].date}</span></span>
-                </div>
-                <div id="index-${index}" class="desc" style="visibility: hidden;">
-                    <div class="fb-post"
-                        data-lazy="true"
-                        data-href="${posts[index].link}"
-                        data-show-text="true"
-                        data-width="auto">
-                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
-                    </div>
-                </div>
-            </div>
-            </li>`);
-        } else {
-            $(".timeline").append(`
-            <li class="post">
-            <div class="direction-l">
-                <div class="flag-wrapper">
-                    <span class="hexa"></span>
-                    <span class="flag">${posts[index].tag}</span>
-                    <span class="time-wrapper">
-                    <span class="time">${posts[index].date}</span></span>
-                </div>
-                <div id="index-${index}" class="desc" style="visibility: hidden;">
-                    <div class="fb-post"
-                        data-lazy="true"
-                        data-href="${posts[index].link}"
-                        data-show-text="true"
-                        data-width="auto">
-                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
-                    </div>
-                </div>
-            </div>
-            </li>`);
-        }
-        // reload all fb posts
-        if (step !== 0 ){
-            FB.XFBML.parse(document.getElementById(`index-${index}`));
-        }
-    }
-    return false;
-}
-
+let pageNum = 1;
 
 $(document).ready(function(){
-    loadPost(0);
-    var counter = 0;
+    drawResults(posts[1], posts[0]);
+
+    var loader = document.querySelector('.loader');
     var btn = $('#button');
 
-    var click = function() {
-      var getClicks = function() {
-        return counter += 1;
+    var scroll = function() {
+      var getScrolls = function() {
+        return pageNum += 1;
       }
-      return getClicks;
+      return getScrolls;
     }
-    onClick = click();
+    onScroll = scroll();
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 300) {
-            btn.addClass('show');
+    window.addEventListener('scroll', () => {
+        if (pageNum * 2 <= posts.length) {
+            if ( document.documentElement.scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+                console.log("pageNum:", pageNum);
+                onScroll();
+                getData(pageNum);
+            }
         } else {
-            btn.removeClass('show');
         }
     });
 
     btn.on('click', function(e) {
-        e.preventDefault();
-        var page = onClick()*2
-        var buttom = loadPost(page);
-        console.log("buttom: ", buttom)
-        btn.removeClass('show');
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, 900);
     });
 
-    // $('.timeline').infiniteScroll({
-    //   // options
-    //   path: function() {
-    //     // for (var i = 4; i < posts.length; i++) {
-    //     //   if ( i % 2 !== 0 ) {
-    //         if ( this.loadCount < 1 ) {
-    //       	  return 'index2.html';
-    //         }
-    //     //   }
-    //     // }
-    //   },
-    //   append: '.post',
-    //   history: false,
-    // });
+    window.onscroll = function() {
+        if (!window.pageYOffset) {
+            btn.removeClass('show');
+        } else {
+            btn.addClass('show');
+        }
+    };
 });
+
+function getData(number) {
+    let rPost = posts[number*2-2]
+    let lPost = posts[number*2-1];
+    drawResults(lPost, rPost);
+}
+
+function drawResults(lPost, rPost) {
+    let rTag = rPost.tag
+    let rDate = rPost.date
+    let rLink = rPost.link
+    let rPostID = rLink.split('/')[rLink.split('/').length-1]
+
+    let lTag = lPost.tag
+    let lDate = lPost.date
+    let lLink = lPost.link
+    let lPostID = lLink.split('/')[lLink.split('/').length-1]
+
+	const html = `
+            <li class="post">
+            <div class="direction-r">
+                <div class="flag-wrapper">
+                    <span class="hexa"></span>
+                    <span class="flag">${rTag}</span>
+                    <span class="time-wrapper">
+                    <span class="time">${rDate}</span></span>
+                </div>
+                <div id="p-${rPostID}" class="desc" style="visibility: hidden;">
+                    <div class="fb-post"
+                        data-lazy="true"
+                        data-href="${rLink}"
+                        data-show-text="true"
+                        data-width="auto">
+                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
+                    </div>
+                </div>
+            </div>
+            </li>
+            <li class="post">
+            <div class="direction-l">
+                <div class="flag-wrapper">
+                    <span class="hexa"></span>
+                    <span class="flag">${lTag}</span>
+                    <span class="time-wrapper">
+                    <span class="time">${lDate}</span></span>
+                </div>
+                <div id="p-${lPostID}" class="desc" style="visibility: hidden;">
+                    <div class="fb-post"
+                        data-lazy="true"
+                        data-href="${lLink}"
+                        data-show-text="true"
+                        data-width="auto">
+                        <blockquote cite="https://www.facebook.com/technologynoteniu/" class="fb-xfbml-parse-ignore"></blockquote>
+                    </div>
+                </div>
+            </div>
+            </li>`;
+	$(".timeline").append(html);
+
+    if (pageNum > 1 ){
+        FB.XFBML.parse(document.getElementById(`p-${rPostID}`));
+        FB.XFBML.parse(document.getElementById(`p-${lPostID}`));
+    }
+}

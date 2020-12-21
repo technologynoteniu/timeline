@@ -3,6 +3,7 @@
 body{
   font-family: 'Raleway', sans-serif;
   color: #333;
+  overflow-y: scroll;
 }
 
 header h1{
@@ -340,7 +341,7 @@ header h1{
   z-index: 1000;
 }
 #button::after {
-  content: "\f063";
+  content: "\f077";
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;

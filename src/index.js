@@ -3,7 +3,6 @@ let pageNum = 1;
 $(document).ready(function(){
     drawResults(posts[1], posts[0]);
 
-    var loader = document.querySelector('.loader');
     var btn = $('#button');
 
     var scroll = function() {

@@ -17,8 +17,12 @@ $(document).ready(function(){
         if (pageNum * 2 <= posts.length) {
             if ( document.documentElement.scrollTop + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
                 console.log("pageNum:", pageNum);
-                onScroll();
-                getData(pageNum);
+
+                setTimeout(() => {
+                    getData(pageNum);
+                    onScroll();
+                }, 1250);
+
             }
         } else {
         }
